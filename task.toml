@@ -12,9 +12,9 @@ artifact_type = ["text_or_log_file", "generated_output_artifact"]
 expert_time_estimate_hours = 0.3
 model_tested = "GPT-5.4"
 agent_tested = "Terminus-2"
-difficulty_explanation = "The task requires exact parsing of client IPs and quoted HTTP request paths, followed by generation of a JSON file with a strict schema."
-solution_explanation = "Read each non-empty log line, count the requests and distinct first-field client IPs, count the request paths, and write the most frequent path with the two counts to /app/report.json."
-verification_explanation = "Load /app/report.json, require the exact three-key JSON schema and value types, and compare total_requests, unique_ips, and top_path with the correct results for the bundled access log."
+difficulty_explanation = "The task is small, but the parser has to pull the client IP and request path from each log line and return the exact JSON shape."
+solution_explanation = "Read each nonblank line, collect unique client IPs, count paths from the quoted request, then write the totals and most common path to /app/report.json."
+verification_explanation = "The tests load /app/report.json, check the exact keys and types, and verify the three values against the bundled six-line log."
 
 [verifier]
 timeout_sec = 120.0
@@ -28,5 +28,5 @@ cpus = 1
 memory_mb = 2048
 storage_mb = 10240
 gpus = 0
-allow_internet = true
+allow_internet = false
 mcp_servers = []
