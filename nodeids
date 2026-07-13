@@ -1,6 +1,0 @@
-[
-  "test_outputs.py::test_criterion_1_report_format",
-  "test_outputs.py::test_criterion_2_total_requests",
-  "test_outputs.py::test_criterion_3_unique_ips",
-  "test_outputs.py::test_criterion_4_top_path"
-]
